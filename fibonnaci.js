@@ -1,5 +1,6 @@
 #!/usr/bin/node
 
+// iterative form
 function fibs(number) {
   let num = Number(number);
 
@@ -20,5 +21,21 @@ function fibs(number) {
     return array;
   }
 }
-
 // console.log(fibs(8));
+
+// recursive form
+function fibsRec(number) {
+  let num = Number(number);
+  if (num === 0) {
+    return [];
+  } else if (num === 1) {
+    return [0];
+  } else if (num === 2) {
+    return [0, 1];
+  } else {
+    console.log("This was printed recursively");
+    const array = fibsRec(num - 1);
+    return array.concat(array[array.length - 1] + array[array.length - 2]);
+  }
+}
+// console.log(fibsRec(8));
